@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: funko-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: funko-app
+  template:
+    metadata:
+      labels:
+        app: funko-app
+    spec:
+      containers:
+      - name: funko-container
+        image: alber965/actividad-aprendizaje:funkos
+        ports:
+        - containerPort: 80
